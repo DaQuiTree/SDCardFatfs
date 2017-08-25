@@ -22,8 +22,9 @@ int fputc(int ch,FILE *f)
 
 int main(void)
 {
-   u8 Buf[]="LY-STM32 主讲人：刘洋 视频教程下载地址 www.zxkjmcu.com";
-
+   u8 Buf[]="yo yo yo yo rap of China! www.zxkjmcu.com";
+   u8 Rev[128] = {0};
+    
    RCC_Configuration();	//系统时钟初始化
    GPIO_COM_Configuration();//端口初始化
    USART_Configuration();
@@ -40,34 +41,33 @@ int main(void)
    		printf("SD卡初始化失败!\r\n");
    }
    
-   if(f_mount(&fs,"0:",1) == FR_NO_FILESYSTEM)printf("没有文件系统。。\r\n");
-   if(f_mkfs("0:",0,0) == FR_OK)printf("创建文件系统成功！\r\n");
-   res=f_open(&fdst,"0:/zx01.txt",FA_CREATE_NEW|FA_WRITE);
+   if(f_mount(&fs,"0:",1) == FR_NO_FILESYSTEM){
+       printf("没有文件系统。。\r\n");
+       if(f_mkfs("0:",0,0) == FR_OK)printf("创建文件系统成功！\r\n");
+   }
+   
+   res=f_open(&fdst,"0:/dk.txt",FA_OPEN_EXISTING|FA_WRITE);
 
    if(res==FR_OK)
    {
    	 	res=f_write(&fdst,Buf,sizeof(Buf),&brw);
 		f_close(&fdst);
 
-		printf("\r\n文件创建成功\r\n");
-		res=f_open(&fdst,"0:/zx01.txt",FA_OPEN_EXISTING|FA_READ);
-
+		printf("\r\n文件打开成功\r\n");
+		//res=f_open(&fdst,"0:/zx01.txt",FA_OPEN_EXISTING|FA_READ);
+        f_puts("HEHEDA", &fdst);
 		while(1)
 		{
 			brw=0;
-			memset(Buf,0,sizeof(Buf));
-			res=f_read(&fdst,Buf,sizeof(Buf),&brw);
+		//	memset(Rev,0,sizeof(Rev));
+			res=f_read(&fdst,Rev,sizeof(Rev),&brw);
 			printf("\r\n %s",Buf);
 			if(res||brw==0) break;		
 		}
 
 		f_close(&fdst);
    }
-   else if(res==FR_EXIST)
-   {
-   		printf("\r\n 文件已经存在\r\n");
-   }
-
+   
    while(1);	
 }
 
