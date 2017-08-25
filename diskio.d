@@ -1,0 +1,12 @@
+.\diskio.o: ff11a\src\diskio.c
+.\diskio.o: ff11a\src\diskio.h
+.\diskio.o: ff11a\src\integer.h
+.\diskio.o: .\USR\sdio_sdcard.h
+.\diskio.o: .\System\stm32f10x.h
+.\diskio.o: .\System\core_cm3.h
+.\diskio.o: F:\uKeil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\diskio.o: .\System\system_stm32f10x.h
+.\diskio.o: .\Lib\inc\stm32f10x_conf.h
+.\diskio.o: .\Lib\inc\stm32f10x_gpio.h
+.\diskio.o: .\System\stm32f10x.h
+.\diskio.o: .\Lib\inc\stm32f10x_rcc.h

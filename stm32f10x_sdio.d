@@ -1,0 +1,10 @@
+.\stm32f10x_sdio.o: Lib\SRC\stm32f10x_sdio.c
+.\stm32f10x_sdio.o: .\Lib\inc\stm32f10x_sdio.h
+.\stm32f10x_sdio.o: .\System\stm32f10x.h
+.\stm32f10x_sdio.o: .\System\core_cm3.h
+.\stm32f10x_sdio.o: F:\uKeil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\stm32f10x_sdio.o: .\System\system_stm32f10x.h
+.\stm32f10x_sdio.o: .\Lib\inc\stm32f10x_conf.h
+.\stm32f10x_sdio.o: .\Lib\inc\stm32f10x_gpio.h
+.\stm32f10x_sdio.o: .\System\stm32f10x.h
+.\stm32f10x_sdio.o: .\Lib\inc\stm32f10x_rcc.h
